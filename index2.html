@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #1a2b3c;
+        }
+
+        /* Dark Theme Navigation */
+        .navbar {
+            background: #1a2b3c;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #4F97DF;
+        }
+
+        /* Logo Design */
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            background: #4F97DF;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #4F97DF;
+        }
+
+        /* Hero Section with Image Banner */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('baner.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }   
+        .hero .learn-more-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: #4F97DF;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        /* Section Common Styles */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #2c3e50;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-top: 3px solid #4F97DF;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #4F97DF;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        /* Tools Section - 4 columns */
+        .tools-section {
+            background: #2c3e50;
+            padding: 5rem 5%;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: #1a2b3c;
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-top: 3px solid #4F97DF;
+        }
+
+        .tool-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .price {
+            margin: 1.5rem 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4F97DF;
+        }
+
+        .price span {
+            display: block;
+            font-size: 1rem;
+            color: #aaa;
+            margin-top: 0.5rem;
+            font-weight: normal;
+        }
+
+        .tool-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #4F97DF;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+    
+        /* Stakeholders Section -  */
+        .stakeholders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .stakeholder-logo {
+            height: 80px;
+            width: auto;
+           
+        }
+
+
+
+        /* Contact Section */
+        .contact-section {
+            background: #1a2b3c;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+            border-top: 2px solid #4F97DF;
+        }
+
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact-form button {
+            padding: 0.8rem 2rem;
+            background: #4F97DF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .social-links a:hover {
+            color: #4F97DF;
+        }
+
+        /* Footer */
+        footer {
+            background: #0e1a24;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tools-grid, .stakeholders-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid, .stakeholders-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stakeholder-logo {
+                max-height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+   <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">IWB</a>
+        <div class="nav-links">
+            <a href="#home">Welcome</a>
+            <a href="#services">What We Offer</a>
+            <a href="#tools">Features</a>
+            <a href="#stakeholders">Partners</a>
+            <a href="#contact">Reach Us</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Eco-Friendly Tech Disposal</h1>
+            <p>Leading the Way in E-Waste Management</p>
+            <a href="#tools" class="learn-more-button">Discover More</a>
+        </div>
+    </section>
+    
+    
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <i class="fas fa-hdd service-icon"></i>
+                <div class="service-info">
+                    <h3>Data Recovery Solutions</h3>
+                    <p>Restore lost files with ease</p>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <i class="fas fa-memory service-icon"></i>
+                <div class="service-info">
+                    <h3>RAM Upcycling</h3>
+                    <p>Enhance performance sustainably</p>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <i class="fas fa-microchip service-icon"></i>
+                <div class="service-info">
+                    <h3>Eco-Friendly Circuit Disposal</h3>
+                    <p>Safeguard the planet with responsible recycling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
+        <h2 class="section-title">Our Digital Security & Backup Solutions</h2>
+        <div class="tools-grid">
+            <!-- Tool 1 -->
+            <div class="tool-card">
+                <h3>DataGuardian Suite</h3>
+                <div class="price">
+                    M29.99
+                    <span>per month</span>
+                </div>
+                <div class="price">
+                    M899.99
+                    <span>per year</span>
+                </div>
+                <a href="#" class="tool-button">Get Started</a>
+            </div>
+
+            <!-- Tool 2 -->
+            <div class="tool-card">
+                <h3>WipeSecure Pro</h3>
+                <div class="price">
+                    M49.99
+                    <span>per month</span>
+                </div>
+                <div class="price">
+                    M1799.99
+                    <span>per year</span>
+                </div>
+                <a href="#" class="tool-button">Get Started</a>
+            </div>
+
+            <!-- Tool 3 -->
+            <div class="tool-card">
+                <h3>CloudFortress Backup</h3>
+                <div class="price">
+                    M109.99
+                    <span>per month</span>
+                </div>
+                <div class="price">
+                    M4599.99
+                    <span>per year</span>
+                </div>
+                <a href="#" class="tool-button">Get Started</a>
+            </div>
+
+            <!-- Tool 4 -->
+            <div class="tool-card">
+                <h3>CyberVault Shield</h3>
+                <div class="price">
+                    M89.99
+                    <span>per month</span>
+                </div>
+                <div class="price">
+                    M2799.99
+                    <span>per year</span>
+                </div>
+                <a href="#" class="tool-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="stakeholders">
+      <h2 class="section-title">Some of our Partners</h2>
+      <div class="stakeholders-grid">
+          <img src="slb.jpeg" alt="Partner 1" class="stakeholder-logo">
+          <img src="metro.png" alt="Partner 2" class="stakeholder-logo">
+          <img src="letsego.png" alt="Partner 3" class="stakeholder-logo">
+          <img src="econet.jpg" alt="Partner 4" class="stakeholder-logo">
+      </div>
+  </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-wrapper">
+            <h2>Get in Touch</h2>
+            <p>Have questions or want to learn more? Reach out to us!</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 IWB - Tech Recycling. All Rights Reserved.
+    </footer>
+</body>
+</html>
